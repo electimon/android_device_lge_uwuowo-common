@@ -175,6 +175,8 @@ set_speaker_light_locked(struct light_device_t* dev,
     green = (colorRGB >> 8) & 0xFF;
     blue = colorRGB & 0xFF;
 
+    write_int(LED_PATTERN_FILE, 0);
+
     if (onMS > 0 && offMS > 0) {
         sprintf(blink_pattern, "0x%x %d %d", colorRGB, onMS, offMS);
         write_str(LED_BLINK_FILE, blink_pattern);
