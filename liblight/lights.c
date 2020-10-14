@@ -52,11 +52,11 @@ char const*const BLUE_LED_FILE
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
 
+char const*const LED_BLINK_FILE
+        = "/sys/devices/i2c.68/i2c-0/0-0032/led_blink";
+
 char const*const LED_PATTERN_FILE
         = "/sys/devices/i2c.68/i2c-0/0-0032/led_pattern";
-
-char const*const LED_STRENGTH_FILE
-        = "/sys/devices/i2c.68/i2c-0/0-0032/led_current_index";
 
 /**
  * device methods
@@ -124,9 +124,9 @@ set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int red, green, blue;
-    int blink;
     int onMS, offMS;
     unsigned int colorRGB;
+    char blink_pattern[PAGE_SIZE];
 
     if(!dev) {
         return -1;
@@ -146,34 +146,16 @@ set_speaker_light_locked(struct light_device_t* dev,
 
     colorRGB = state->color;
 
-#if 0
     ALOGD("set_speaker_light_locked mode %d, colorRGB=%08X, onMS=%d, offMS=%d\n",
             state->flashMode, colorRGB, onMS, offMS);
-#endif
 
     red = (colorRGB >> 16) & 0xFF;
     green = (colorRGB >> 8) & 0xFF;
     blue = colorRGB & 0xFF;
 
     if (onMS > 0 && offMS > 0) {
-        blink = 1;
-    } else {
-        blink = 0;
-    }
-
-    if (blink) {
-        if (red) {
-            if (write_int(RED_BLINK_FILE, blink))
-                write_int(RED_LED_FILE, 0);
-	}
-        if (green) {
-            if (write_int(GREEN_BLINK_FILE, blink))
-                write_int(GREEN_LED_FILE, 0);
-	}
-        if (blue) {
-            if (write_int(BLUE_BLINK_FILE, blink))
-                write_int(BLUE_LED_FILE, 0);
-	}
+        sprintf(blink_pattern, "0x%x %d %d", colorRGB, onMS, offMS);
+        write_str(LED_BLINK_FILE, blink_pattern);
     } else {
         write_int(RED_LED_FILE, red);
         write_int(GREEN_LED_FILE, green);
