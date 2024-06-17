@@ -22,7 +22,7 @@
 # definition file).
 #
 # inherit from the proprietary version
-VENDOR_PATH := device/lge/msm8226-common
+VENDOR_PATH := device/lge/uwuowo-common
 
 TARGET_SPECIFIC_HEADER_PATH += $(VENDOR_PATH)/include
 
@@ -31,7 +31,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 # Platform
-TARGET_BOARD_PLATFORM := msm8226
+TARGET_BOARD_PLATFORM ?= msm8226
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
 
 # Architecture
@@ -48,7 +48,7 @@ BOARD_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
 # Kernel image
 BOARD_KERNEL_SEPARATED_DT := true
-TARGET_KERNEL_SOURCE := kernel/lge/msm8226
+TARGET_KERNEL_SOURCE ?= kernel/lge/msm8226
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=31 msm_rtb.filter=0x37 androidboot.hardware=qcom androidboot.selinux=enforcing
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -161,4 +161,3 @@ TARGET_HW_DISK_ENCRYPTION := false
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
-

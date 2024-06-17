@@ -96,7 +96,7 @@ endif
 PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
-    audio.primary.msm8226 \
+    audio.primary.$(TARGET_BOARD_PLATFORM) \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
@@ -123,28 +123,28 @@ PRODUCT_PACKAGES += \
 ifeq ($(BOARD_HAS_LG_IRRC),true)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:system/etc/permissions/android.hardware.consumerir.xml
-PRODUCT_PACKAGES += consumerir.msm8226
+PRODUCT_PACKAGES += consumerir.$(TARGET_BOARD_PLATFORM)
 endif
 
 # Keystore
-PRODUCT_PACKAGES += keystore.msm8226
+PRODUCT_PACKAGES += keystore.$(TARGET_BOARD_PLATFORM)
 
 # Charger
 PRODUCT_PACKAGES += charger charger_res_images
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm8226
+    gps.$(TARGET_BOARD_PLATFORM)
 
 # HAL
 PRODUCT_PACKAGES += \
-    copybit.msm8226\
-    gralloc.msm8226 \
-    hwcomposer.msm8226 \
-    lights.msm8226 \
-    memtrack.msm8226 \
-    power.msm8226 \
-    sensors.msm8226 \
+    copybit.$(TARGET_BOARD_PLATFORM) \
+    gralloc.$(TARGET_BOARD_PLATFORM) \
+    hwcomposer.$(TARGET_BOARD_PLATFORM) \
+    lights.$(TARGET_BOARD_PLATFORM) \
+    memtrack.$(TARGET_BOARD_PLATFORM) \
+    power.$(TARGET_BOARD_PLATFORM) \
+    sensors.$(TARGET_BOARD_PLATFORM) \
     sensors.qcom
 
 # OMX
@@ -176,7 +176,7 @@ PRODUCT_BOOT_JARS += telephony-ext
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8226 \
+    camera.$(TARGET_BOARD_PLATFORM) \
     Snap
 
 ifeq ($(BOARD_HAS_NFC), true)
@@ -203,5 +203,5 @@ endif
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
-$(call inherit-product, vendor/lge/msm8226-common/msm8226-common-vendor.mk)
+$(call inherit-product, vendor/lge/uwuowo-common/uwuowo-common-vendor.mk)
 
