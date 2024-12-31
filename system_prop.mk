@@ -28,7 +28,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=0 \
     rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
     rild.libargs=-d[SPACE]/dev/smd0 \
-    persist.data.qmi.adb_logmask=0
+    persist.data.qmi.adb_logmask=0 \
+    ro.radio.noril=true
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
