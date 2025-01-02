@@ -1,3 +1,5 @@
+# Files from D62020e_00
+
 # Time services
 bin/time_daemon
 -vendor/lib/libtime_genoff.so
@@ -5,12 +7,27 @@ bin/time_daemon
 -app/TimeService/TimeService.apk
 
 # Audio
+vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
+
+# Bluetooth
+bin/bdaddr_loader
+bin/hci_qcomm_init
+lib/libatd_corelib.so
+-vendor/lib/libbtnv.so
+lib/liblgftmitem.so
+
+# STLport
+lib/libstlport.so
+
+# CNE
+lib/libcnefeatureconfig.so
+vendor/lib/libcneapiclient.so
 
 # Qualcomm framework
 bin/irsc_util
@@ -30,26 +47,18 @@ vendor/lib/libqmi_encdec.so
 -vendor/lib/libqmiservices.so
 vendor/lib/libsmemlog.so
 vendor/lib/libsystem_health_mon.so
-vendor/lib/libqmi_csvt_srvc.so
 
 # Radio
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
--app/shutdownlistener/shutdownlistener.apk
 bin/netmgrd
 bin/qmuxd
 bin/radish
-bin/rfs_access
 bin/rmt_storage
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
-etc/data/dsi_config.xml
-etc/data/netmgr_config.xml
 framework/qcnvitems.jar
 framework/qcrilhook.jar
-framework/qti-telephony-common.jar
 -lib/libmdmdetect.so
 vendor/lib/libconfigdb.so
-vendor/lib/liblqe.so
 vendor/lib/libnetmgr.so
 -vendor/lib/libperipheral_client.so
 vendor/lib/libril-qc-qmi-1.so
@@ -57,42 +66,37 @@ vendor/lib/libril-qcril-hook-oem.so
 vendor/lib/libxml.so
 vendor/lib/libqmi_client_helper.so
 
-
-# Graphics
-vendor/lib/egl/eglsubAndroid.so
-vendor/lib/egl/libEGL_adreno.so
-vendor/lib/egl/libGLESv1_CM_adreno.so
-vendor/lib/egl/libGLESv2_adreno.so
-vendor/lib/egl/libq3dtools_adreno.so
-vendor/lib/libadreno_utils.so
-vendor/lib/libbccQTI.so
-vendor/lib/libC2D2.so
-vendor/lib/libCB.so
-vendor/lib/libc2d30-a3xx.so
-vendor/lib/libgsl.so
-vendor/lib/libllvm-qcom.so
-vendor/lib/libOpenCL.so
-vendor/lib/libsc-a3xx.so
-vendor/lib/libRSDriver_adreno.so
-vendor/lib/librs_adreno.so
-vendor/lib/librs_adreno_sha1.so
-vendor/lib/libscale.so
+# Graphics (OnePlus onyx - Oxygen OS 3.1.4 - OnePlusXOxygen_14_201611071506)
+etc/firmware/a225_pm4.fw
+etc/firmware/a300_pm4.fw
+etc/firmware/a330_pm4.fw
+etc/firmware/a225_pfp.fw
+etc/firmware/a225p5_pm4.fw
+etc/firmware/a300_pfp.fw
+etc/firmware/a330_pfp.fw
+vendor/lib/egl/eglsubAndroid.so|b8a5790c5b4ba4cf0018c94066104610c821ed8e
+vendor/lib/egl/libEGL_adreno.so|cd29673e990dba8158e961e287a79dfbd852d095
+vendor/lib/egl/libGLESv1_CM_adreno.so|ae86d16ba499ac6cdd3cecb91ae6b16b4c303984
+vendor/lib/egl/libGLESv2_adreno.so|445be60045ff86d1d27545692134eacf0d89a6dc
+vendor/lib/egl/libq3dtools_adreno.so|2c12919492f1146b58f4f1c379dfe10d3320d476
+vendor/lib/libC2D2.so|d34587d5143bd09f847cb6686b03461a6e62cd87
+vendor/lib/libCB.so|3d2ad5bbff1cf4019d89c38689ec2ce3c186a3c1
+vendor/lib/libOpenCL.so|2b4b9692b16729b880d7881e68208183943f9612
+vendor/lib/libadreno_utils.so|a109e06c933811c578d129c0772a612cf5d94367
+vendor/lib/libbccQTI.so|94132d5d8421428001c2201a8915949c531b0ad9
+vendor/lib/libc2d30-a3xx.so|3666e0bf418e7ea7480b27c2c1ddd1bc86037044
+vendor/lib/libgsl.so|fafee1adf0e89325b3a1ea83d5205c02ebf860f3
+vendor/lib/libllvm-qcom.so|fc96c949b662fb34b287a4c0aa194984fbb57d7d
+vendor/lib/libsc-a3xx.so|231201bcfead5f930537d2fba22d89b00e673386
+vendor/lib/libscale.so|b44f44c633fa404d10e76aaa23593b516e08e2b8
 
 # DRM
 bin/qseecomd
-etc/permissions/com.google.widevine.software.drm.xml
-framework/com.google.widevine.software.drm.jar
 vendor/lib/libQSEEComAPI.so
-lib/libdrmdecrypt.so
-vendor/lib/libdrmdiag.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
-vendor/lib/libwvdrm_L3.so
-vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L3.so
-vendor/lib/drm/libdrmwvmplugin.so
 
 # Media
 lib/libqomx_core.so
@@ -102,19 +106,12 @@ vendor/lib/libmm-color-convertor.so
 # ADSP
 bin/adsprpcd
 vendor/lib/libadsprpc.so
-vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
 
 # Thermal daemon
-vendor/bin/thermal-engine
+bin/thermal-engine
 vendor/lib/libthermalioctl.so
 vendor/lib/libthermalclient.so
-
-# Listen service
-vendor/lib/liblistenhardware.so
-vendor/lib/liblistenjni.so
--vendor/lib/liblisten.so
-vendor/lib/liblistensoundmodel.so
 
 # GPS
 lib/libloc_api_v02.so
@@ -127,9 +124,13 @@ vendor/lib/liblbs_core.so
 # Perf
 bin/mpdecision
 vendor/lib/libqti-perfd-client.so
-vendor/lib/libqc-opt.so
 
 # OMX
-vendor/lib/libDivxDrm.so
 vendor/lib/libmmosal.so
-vendor/lib/libSHIMDivxDrm.so
+
+# Camera firmware
+etc/firmware/cpp_firmware_v1_1_1.fw
+etc/firmware/cpp_firmware_v1_1_6.fw
+etc/firmware/cpp_firmware_v1_2_0.fw
+etc/firmware/leia_pfp_470.fw
+etc/firmware/leia_pm4_470.fw
