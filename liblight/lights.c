@@ -53,10 +53,10 @@ char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
 
 char const*const LED_BLINK_FILE
-        = "/sys/devices/i2c.68/i2c-0/0-0032/led_blink";
+        = "/sys/bus/i2c/drivers/lp5521/0-0032/led_blink";
 
 char const*const LED_PATTERN_FILE
-        = "/sys/devices/i2c.68/i2c-0/0-0032/led_pattern";
+        = "/sys/bus/i2c/drivers/lp5521/0-0032/led_pattern";
 
 /**
  * device methods
