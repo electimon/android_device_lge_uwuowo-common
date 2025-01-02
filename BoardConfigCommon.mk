@@ -95,7 +95,7 @@ BLUETOOTH_HCI_USE_MCT := true
 
 # FM Radio
 BOARD_HAVE_QCOM_FM := true
-TARGET_QCOM_NO_FM_FIRMWARE := true
+#TARGET_QCOM_NO_FM_FIRMWARE := true
 endif
 
 # Nfc

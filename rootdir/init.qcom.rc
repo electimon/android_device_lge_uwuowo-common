@@ -552,6 +552,13 @@ on property:init.svc.brcm_hwaddrs=stopped
     chmod 644 /data/misc/bdaddr
     start brcm_hwaddrs2
 
+service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
+    class late_start
+    user system
+    group system
+    disabled
+    oneshot
+
 # Charger
 on charger
     wait /dev/block/platform/msm_sdcc.1/by-name/system
